@@ -2,6 +2,8 @@
 import { render } from "./render.js";
 let numTasks = 0;
 let arrTasks = []
+console.log(arrTasks)
+console.log(typeof(arrTasks))
 const Tasks = document.getElementById("Etask")
 const Display = document.getElementsByClassName("display")[0]
 const localStorageKey = "tasks";
@@ -9,8 +11,10 @@ const localStorageKey = "tasks";
 const storedTasks = localStorage.getItem("tasks");
 console.log(storedTasks)
 console.log(typeof (storedTasks))
-arrTasks = storedTasks != "" ? JSON.parse(storedTasks) : [];
-if(arrTasks.length) render(arrTasks, Display)
+if(storedTasks){
+    arrTasks=JSON.parse(storedTasks);
+    render(arrTasks,Display)
+}
 
 document.getElementById("submit").addEventListener('click', (ev) => {
     const text = Tasks.value
