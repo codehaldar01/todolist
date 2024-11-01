@@ -10,7 +10,7 @@ const storedTasks = localStorage.getItem("tasks");
 console.log(storedTasks)
 console.log(typeof (storedTasks))
 arrTasks = storedTasks != "" ? JSON.parse(storedTasks) : [];
-render(arrTasks, Display)
+if(arrTasks.length) render(arrTasks, Display)
 
 document.getElementById("submit").addEventListener('click', (ev) => {
     const text = Tasks.value
